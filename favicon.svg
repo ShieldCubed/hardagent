@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#0b0b0d"/>
+  <!-- Die outline -->
+  <rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="#f3ede0" stroke-opacity="0.25" stroke-width="0.5"/>
+  <!-- Left vertical post -->
+  <rect x="6" y="4" width="5" height="24" fill="#f3ede0"/>
+  <!-- Right vertical post -->
+  <rect x="21" y="4" width="5" height="24" fill="#f3ede0"/>
+  <!-- Copper crossbar -->
+  <rect x="11" y="14" width="10" height="4" fill="#c97a3b"/>
+  <!-- Corner registration marks -->
+  <rect x="2" y="2" width="2" height="2" fill="#c97a3b"/>
+  <rect x="28" y="2" width="2" height="2" fill="#c97a3b"/>
+  <rect x="2" y="28" width="2" height="2" fill="#c97a3b"/>
+  <rect x="28" y="28" width="2" height="2" fill="#c97a3b"/>
+</svg>

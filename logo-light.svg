@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" font-family="'Fraunces', 'Iowan Old Style', Georgia, serif">
+  <!-- For light backgrounds (white paper, light decks, business cards) -->
+
+  <!-- Mark -->
+  <g transform="translate(8, 12)">
+    <rect x="1.5" y="1.5" width="53" height="53" fill="none" stroke="#1a1a1a" stroke-opacity="0.18" stroke-width="0.8"/>
+    <rect x="11" y="7" width="9" height="42" fill="#1a1a1a"/>
+    <rect x="36" y="7" width="9" height="42" fill="#1a1a1a"/>
+    <rect x="20" y="24.5" width="16" height="7" fill="#c97a3b"/>
+    <rect x="3" y="3" width="3" height="3" fill="#c97a3b"/>
+    <rect x="50" y="3" width="3" height="3" fill="#c97a3b"/>
+    <rect x="3" y="50" width="3" height="3" fill="#c97a3b"/>
+    <rect x="50" y="50" width="3" height="3" fill="#c97a3b"/>
+  </g>
+
+  <text x="80" y="50" font-size="36" font-weight="400" fill="#1a1a1a" letter-spacing="0.5">Hardagent</text>
+  <text x="252" y="28" font-size="9" font-family="'JetBrains Mono', Menlo, monospace" fill="#666">℠</text>
+</svg>

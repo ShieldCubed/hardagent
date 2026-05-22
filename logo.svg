@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" font-family="'Fraunces', 'Iowan Old Style', Georgia, serif">
+  <!-- Background (transparent — works on dark or light) -->
+
+  <!-- Mark: H as chip die diagram -->
+  <g transform="translate(8, 12)">
+    <!-- Die outline -->
+    <rect x="1.5" y="1.5" width="53" height="53" fill="none" stroke="#f3ede0" stroke-opacity="0.18" stroke-width="0.8"/>
+    <!-- Left vertical post -->
+    <rect x="11" y="7" width="9" height="42" fill="#f3ede0"/>
+    <!-- Right vertical post -->
+    <rect x="36" y="7" width="9" height="42" fill="#f3ede0"/>
+    <!-- Copper crossbar -->
+    <rect x="20" y="24.5" width="16" height="7" fill="#c97a3b"/>
+    <!-- Corner registration marks -->
+    <rect x="3" y="3" width="3" height="3" fill="#c97a3b"/>
+    <rect x="50" y="3" width="3" height="3" fill="#c97a3b"/>
+    <rect x="3" y="50" width="3" height="3" fill="#c97a3b"/>
+    <rect x="50" y="50" width="3" height="3" fill="#c97a3b"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="80" y="50" font-size="36" font-weight="400" fill="#f3ede0" letter-spacing="0.5">Hardagent</text>
+
+  <!-- Service mark -->
+  <text x="252" y="28" font-size="9" font-family="'JetBrains Mono', Menlo, monospace" fill="#a39a8a">℠</text>
+</svg>
