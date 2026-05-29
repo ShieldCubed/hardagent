@@ -9,6 +9,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@300;400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- three.js + addons for the accelerator showcase (single importmap for the page) -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
 <style>
   :root {
     --bg: #0b0b0d;
@@ -557,6 +566,57 @@
     transform: translateY(0);
   }
 
+  /* ---------- Accelerator showcase (WebGL) ---------- */
+  .accel-stage {
+    position: relative;
+    margin-top: 1rem;
+    height: clamp(380px, 56vh, 600px);
+    border: 1px solid var(--line);
+    background:
+      radial-gradient(120% 90% at 80% -12%, rgba(201, 122, 59, 0.10), transparent 55%),
+      radial-gradient(90% 80% at 8% 112%, rgba(60, 120, 255, 0.10), transparent 55%),
+      var(--bg-elev);
+    overflow: hidden;
+  }
+  .accel-stage::after {
+    content: "rotating · drag to look · click a family to focus";
+    position: absolute;
+    left: 1rem; bottom: 0.8rem;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-mute);
+    pointer-events: none;
+  }
+  .accel-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .accel-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    margin-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+  }
+  .accel-legend button {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--line-bright);
+    color: var(--fg-dim);
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  .accel-legend button:hover { color: var(--fg); border-color: var(--accent); transform: translateY(-1px); }
+  .accel-legend .dot { width: 9px; height: 9px; border-radius: 50%; box-shadow: 0 0 12px currentColor; }
+  .accel-legend small { color: var(--fg-mute); letter-spacing: 0.06em; }
+  .accel-legend .d-llm { color: #ff7a4d; }
+  .accel-legend .d-tnn { color: #2fe6c8; }
+  .accel-legend .d-mm  { color: #a47bff; }
+  @media (prefers-reduced-motion: reduce) { .accel-canvas { opacity: 0.92; } }
+
   /* ---------- Selection ---------- */
   ::selection {
     background: var(--accent);
@@ -590,6 +650,7 @@
       </a>
       <nav aria-label="Primary">
         <ul>
+          <li><a href="#accelerators">Accelerators</a></li>
           <li><a href="#thesis">Thesis</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#silicon">Silicon</a></li>
@@ -691,9 +752,30 @@
       </div>
     </div>
 
+    <!-- ACCELERATORS -->
+    <section id="accelerators">
+      <span class="section-num">§ 01 — The accelerators</span>
+      <h2 class="reveal">Three dies. Each one <em>embodies a model.</em></h2>
+      <p class="section-lede reveal">
+        We do not ship a single part. We compile a model class into the silicon that
+        runs it best — a dense transformer engine, a Tversky feature-matching fabric, a fused
+        multimodal pipeline. Below: the live geometry of each, rendered in real time.
+      </p>
+
+      <div class="accel-stage reveal">
+        <canvas class="accel-canvas" id="ha-accel-canvas"></canvas>
+      </div>
+
+      <div class="accel-legend" aria-label="Accelerator families">
+        <button data-focus="0"><span class="dot d-llm"></span>HA-L · Large Language Models <small>// transformer dense</small></button>
+        <button data-focus="1"><span class="dot d-tnn"></span>HA-T · Tversky Neural Nets <small>// feature-matching similarity</small></button>
+        <button data-focus="2"><span class="dot d-mm"></span>HA-M · Multimodal <small>// vision · audio · text</small></button>
+      </div>
+    </section>
+
     <!-- THESIS -->
     <section id="thesis">
-      <span class="section-num">§ 01 — Thesis</span>
+      <span class="section-num">§ 02 — Thesis</span>
       <h2 class="reveal">General-purpose silicon is paying for flexibility you don't <em>need.</em></h2>
       <p class="section-lede reveal">
         A GPU is built to run any program. An inference workload is one program, executed
@@ -734,7 +816,7 @@
 
     <!-- PROCESS -->
     <section id="process">
-      <span class="section-num">§ 02 — Process</span>
+      <span class="section-num">§ 03 — Process</span>
       <h2 class="reveal">From open weights to sealed silicon, in <em>seven steps.</em></h2>
       <p class="section-lede reveal">
         We do not sell chips off a shelf. Each customer engagement compiles a specific
@@ -851,7 +933,7 @@
 
     <!-- COMPARISON -->
     <section id="silicon">
-      <span class="section-num">§ 03 — The math</span>
+      <span class="section-num">§ 04 — The math</span>
       <h2 class="reveal">Why a fixed-function accelerator <em>beats</em> a general-purpose GPU on inference.</h2>
       <p class="section-lede reveal">
         A GPU spends most of its die area on things you do not use during inference:
@@ -912,7 +994,7 @@
 
     <!-- CTA -->
     <section id="contact" class="cta-block" style="border-top: 1px solid var(--line);">
-      <span class="section-num" style="text-align: center;">§ 04 — Engage</span>
+      <span class="section-num" style="text-align: center;">§ 05 — Engage</span>
       <h2 class="reveal">If your inference budget exceeds your headcount, we should talk.</h2>
       <p class="lede reveal" style="max-width: 52ch;">
         The Hardagent program admits four customers per fabrication cohort. Engagement
@@ -927,7 +1009,7 @@
 
     <!-- CAREERS -->
     <section id="careers" style="text-align: left;">
-      <span class="section-num">§ 05 — Careers</span>
+      <span class="section-num">§ 06 — Careers</span>
       <h2 class="reveal">Wanted: people who have shipped <em>real</em> silicon.</h2>
       <p class="section-lede reveal">
         We are hiring physical-design, RTL, packaging, and firmware engineers with
@@ -950,6 +1032,7 @@
       </div>
       <div class="footer-contact">
         <a href="https://t.me/g64group">Telegram · @g64group</a>
+        <a href="https://x.com/hypershares">X · @hypershares</a>
         <a href="mailto:contact@spacenet.network">contact@spacenet.network</a>
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
@@ -977,6 +1060,175 @@
         die.style.transform = `translateY(calc(-50% + ${y * 0.05}px)) rotate(${y * 0.01}deg)`;
       }, { passive: true });
     }
+  </script>
+
+  <!-- ===== Accelerator showcase · three.js (multifractal dies) ===== -->
+  <script type="module">
+  import * as THREE from 'three';
+  import { EffectComposer }  from 'three/addons/postprocessing/EffectComposer.js';
+  import { RenderPass }      from 'three/addons/postprocessing/RenderPass.js';
+  import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+  const canvas = document.getElementById('ha-accel-canvas');
+  if (canvas) {
+    const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true, powerPreference:'high-performance' });
+    renderer.setClearColor(0x000000, 0);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+
+    const scene  = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
+    camera.position.set(0, 0.6, 9.5);
+
+    scene.add(new THREE.AmbientLight(0x223044, 0.9));
+    const key  = new THREE.PointLight(0xff8a3d, 60, 40); key.position.set(6,5,6);   scene.add(key);
+    const fill = new THREE.PointLight(0x3f7bff, 45, 40); fill.position.set(-7,-3,4); scene.add(fill);
+
+    const dieVert = `
+      uniform float uTime;
+      varying vec3 vN; varying vec3 vPos; varying float vH;
+      vec3 hash3(vec3 p){
+        p = vec3(dot(p,vec3(127.1,311.7,74.7)),
+                 dot(p,vec3(269.5,183.3,246.1)),
+                 dot(p,vec3(113.5,271.9,124.6)));
+        return fract(sin(p)*43758.5453)*2.0-1.0;
+      }
+      float noise(vec3 p){
+        vec3 i=floor(p), f=fract(p); vec3 u=f*f*(3.0-2.0*f);
+        return mix(mix(mix(dot(hash3(i+vec3(0,0,0)),f-vec3(0,0,0)),
+                           dot(hash3(i+vec3(1,0,0)),f-vec3(1,0,0)),u.x),
+                       mix(dot(hash3(i+vec3(0,1,0)),f-vec3(0,1,0)),
+                           dot(hash3(i+vec3(1,1,0)),f-vec3(1,1,0)),u.x),u.y),
+                   mix(mix(dot(hash3(i+vec3(0,0,1)),f-vec3(0,0,1)),
+                           dot(hash3(i+vec3(1,0,1)),f-vec3(1,0,1)),u.x),
+                       mix(dot(hash3(i+vec3(0,1,1)),f-vec3(0,1,1)),
+                           dot(hash3(i+vec3(1,1,1)),f-vec3(1,1,1)),u.x),u.y),u.z);
+      }
+      float fbm(vec3 p){
+        float a=0.5, s=0.0; mat3 m=mat3(0.00,0.80,0.60,-0.80,0.36,-0.48,-0.60,-0.48,0.64);
+        for(int i=0;i<5;i++){ s+=a*noise(p); p=m*p*2.02; a*=0.5; }
+        return s;
+      }
+      void main(){
+        vN = normal; vPos = position;
+        vec3 q = position*1.6 + vec3(0.0,0.0,uTime*0.15);
+        vec3 warp = vec3(fbm(q), fbm(q+5.2), fbm(q+9.1));
+        float h = fbm(q + 1.8*warp);
+        vH = h;
+        vec3 displaced = position + normal * h * 0.42;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(displaced,1.0);
+      }`;
+
+    const dieFrag = `
+      precision highp float;
+      uniform float uTime; uniform vec3 uA,uB,uC,uD; uniform float uMix;
+      varying vec3 vN; varying vec3 vPos; varying float vH;
+      vec3 pal(float t){ return uA + uB*cos(6.28318*(uC*t+uD)); }
+      void main(){
+        float t = vH*uMix + length(vPos)*0.35 + uTime*0.05;
+        vec3 col = pal(t);
+        vec3 V = normalize(cameraPosition - vPos);
+        float fres = pow(1.0 - max(dot(normalize(vN),V),0.0), 2.5);
+        col += pal(t+0.4) * fres * 1.6;
+        col *= 0.85 + 0.6*smoothstep(-0.3,0.6,vH);
+        gl_FragColor = vec4(col, 1.0);
+      }`;
+
+    const pUniforms = (a,b,c,d,mix)=>({
+      uTime:{value:0}, uMix:{value:mix},
+      uA:{value:new THREE.Vector3(...a)}, uB:{value:new THREE.Vector3(...b)},
+      uC:{value:new THREE.Vector3(...c)}, uD:{value:new THREE.Vector3(...d)},
+    });
+
+    const FAMILIES = [
+      { pal: pUniforms([0.6,0.35,0.30],[0.45,0.30,0.25],[1.0,1.2,1.4],[0.00,0.15,0.30], 2.0), pkg:0x1c1310, rim:0xff7a4d },
+      { pal: pUniforms([0.25,0.5,0.5],[0.35,0.45,0.45],[1.4,1.6,1.0],[0.40,0.20,0.55], 2.4), pkg:0x0c1816, rim:0x2fe6c8 },
+      { pal: pUniforms([0.5,0.5,0.55],[0.5,0.5,0.5],[2.2,1.9,2.6],[0.10,0.45,0.75], 3.2), pkg:0x140f1c, rim:0xa47bff },
+    ];
+
+    const dieGeo = new THREE.IcosahedronGeometry(1.0, 48);
+    const units = [];
+
+    function buildUnit(family){
+      const g = new THREE.Group();
+      const board = new THREE.Mesh(new THREE.BoxGeometry(3.0,0.18,2.4),
+        new THREE.MeshStandardMaterial({color:0x05110d, roughness:0.65, metalness:0.4}));
+      board.position.y = -1.05; g.add(board);
+      const frame = new THREE.Mesh(new THREE.BoxGeometry(2.0,0.12,2.0),
+        new THREE.MeshStandardMaterial({color:family.pkg, roughness:0.35, metalness:0.9}));
+      frame.position.y = -0.9; g.add(frame);
+      const memMat = new THREE.MeshStandardMaterial({color:0x0a0a0f, roughness:0.4, metalness:0.8,
+        emissive:new THREE.Color(family.rim), emissiveIntensity:0.12});
+      for(let i=0;i<8;i++){
+        const m = new THREE.Mesh(new THREE.BoxGeometry(0.34,0.26,0.5), memMat);
+        const side = i<4? -1.05 : 1.05;
+        m.position.set(side, -0.78, -0.78 + (i%4)*0.52);
+        g.add(m);
+      }
+      const dieMat = new THREE.ShaderMaterial({ vertexShader:dieVert, fragmentShader:dieFrag, uniforms:family.pal });
+      const die = new THREE.Mesh(dieGeo, dieMat); die.scale.setScalar(0.92);
+      g.add(die); g.userData.die = die;
+      const under = new THREE.PointLight(family.rim, 8, 6); under.position.set(0,-0.4,0); g.add(under);
+      return g;
+    }
+
+    const root = new THREE.Group(); scene.add(root);
+    const SPREAD = 4.0;
+    FAMILIES.forEach((f,i)=>{ const u=buildUnit(f); u.position.x=(i-1)*SPREAD; u.rotation.x=-0.35; root.add(u); units.push(u); });
+
+    const N=420, pg=new THREE.BufferGeometry(), pp=new Float32Array(N*3);
+    for(let i=0;i<N;i++){ pp[i*3]=(Math.random()-0.5)*40; pp[i*3+1]=(Math.random()-0.5)*22; pp[i*3+2]=-6-Math.random()*22; }
+    pg.setAttribute('position', new THREE.BufferAttribute(pp,3));
+    const pts = new THREE.Points(pg, new THREE.PointsMaterial({ color:0x6fa8ff, size:0.10, transparent:true, opacity:0.5, depthWrite:false, blending:THREE.AdditiveBlending }));
+    scene.add(pts);
+
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+    composer.addPass(new UnrealBloomPass(new THREE.Vector2(1,1), 0.85, 0.65, 0.0));
+
+    let focusX=0, targetFocusX=0, mx=0, my=0;
+    const sec = document.getElementById('accelerators');
+    sec.addEventListener('pointermove', e=>{
+      const r = sec.getBoundingClientRect();
+      mx = ((e.clientX-r.left)/r.width  - 0.5);
+      my = ((e.clientY-r.top )/r.height - 0.5);
+    });
+    document.querySelectorAll('.accel-legend button').forEach(b=>{
+      b.addEventListener('click', ()=>{ targetFocusX = (Number(b.dataset.focus)-1)*SPREAD; });
+    });
+
+    function resize(){
+      const r = canvas.getBoundingClientRect();
+      const w = Math.max(1,r.width), h = Math.max(1,r.height);
+      renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+      renderer.setSize(w,h,false); composer.setSize(w,h);
+      camera.aspect = w/h; camera.updateProjectionMatrix();
+    }
+    new ResizeObserver(resize).observe(canvas); resize();
+
+    const clock = new THREE.Clock();
+    (function tick(){
+      const t = clock.getElapsedTime(); const dt = reduce ? 0 : 1;
+      units.forEach((u,i)=>{
+        u.userData.die.material.uniforms.uTime.value = t;
+        u.userData.die.rotation.y += 0.0035*dt*(1+i*0.15);
+        u.userData.die.rotation.x = -0.2 + Math.sin(t*0.4+i)*0.12*dt;
+        u.position.y = Math.sin(t*0.6 + i*1.3)*0.12*dt;
+      });
+      focusX += (targetFocusX - focusX)*0.05;
+      root.position.x = -focusX;
+      root.rotation.y = Math.sin(t*0.15)*0.25*dt + mx*0.4;
+      root.rotation.x = my*0.18;
+      pts.rotation.z = t*0.01*dt;
+      camera.position.x += ((mx*0.8) - camera.position.x)*0.04;
+      camera.position.y += ((0.6 - my*0.6) - camera.position.y)*0.04;
+      camera.lookAt(-focusX*0.25,0,0);
+      composer.render();
+      requestAnimationFrame(tick);
+    })();
+  }
   </script>
 </body>
 </html>
