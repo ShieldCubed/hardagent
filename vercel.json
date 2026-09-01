@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/sovereign",
+      "destination": "https://sovereign-delta-six.vercel.app/sovereign"
+    },
+    {
+      "source": "/sovereign/:path*",
+      "destination": "https://sovereign-delta-six.vercel.app/sovereign/:path*"
+    }
+  ]
+}
