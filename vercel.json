@@ -1,17 +1,22 @@
 {
   "trailingSlash": true,
   "rewrites": [
-    {
-      "source": "/sovereign",
-      "destination": "https://sovereign-delta-six.vercel.app/sovereign/"
-    },
-    {
-      "source": "/sovereign/",
-      "destination": "https://sovereign-delta-six.vercel.app/sovereign/"
-    },
-    {
-      "source": "/sovereign/:path*",
-      "destination": "https://sovereign-delta-six.vercel.app/sovereign/:path*"
-    }
+    { "source": "/sovereign", "destination": "https://sovereign-delta-six.vercel.app/sovereign/" },
+    { "source": "/sovereign/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/" },
+    { "source": "/sovereign/_next/:path*", "destination": "https://sovereign-delta-six.vercel.app/sovereign/_next/:path*" },
+    { "source": "/sovereign/technology", "destination": "https://sovereign-delta-six.vercel.app/sovereign/technology/" },
+    { "source": "/sovereign/technology/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/technology/" },
+    { "source": "/sovereign/business", "destination": "https://sovereign-delta-six.vercel.app/sovereign/business/" },
+    { "source": "/sovereign/business/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/business/" },
+    { "source": "/sovereign/enterprise", "destination": "https://sovereign-delta-six.vercel.app/sovereign/enterprise/" },
+    { "source": "/sovereign/enterprise/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/enterprise/" },
+    { "source": "/sovereign/individuals", "destination": "https://sovereign-delta-six.vercel.app/sovereign/individuals/" },
+    { "source": "/sovereign/individuals/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/individuals/" },
+    { "source": "/sovereign/developers", "destination": "https://sovereign-delta-six.vercel.app/sovereign/developers/" },
+    { "source": "/sovereign/developers/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/developers/" },
+    { "source": "/sovereign/team", "destination": "https://sovereign-delta-six.vercel.app/sovereign/team/" },
+    { "source": "/sovereign/team/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/team/" },
+    { "source": "/sovereign/perspectives", "destination": "https://sovereign-delta-six.vercel.app/sovereign/perspectives/" },
+    { "source": "/sovereign/perspectives/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/perspectives/" }
   ]
 }
