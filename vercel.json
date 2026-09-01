@@ -1,8 +1,13 @@
 {
+  "trailingSlash": true,
   "rewrites": [
     {
       "source": "/sovereign",
-      "destination": "https://sovereign-delta-six.vercel.app/sovereign"
+      "destination": "https://sovereign-delta-six.vercel.app/sovereign/"
+    },
+    {
+      "source": "/sovereign/",
+      "destination": "https://sovereign-delta-six.vercel.app/sovereign/"
     },
     {
       "source": "/sovereign/:path*",
