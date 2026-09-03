@@ -17,6 +17,9 @@
     { "source": "/sovereign/team", "destination": "https://sovereign-delta-six.vercel.app/sovereign/team/" },
     { "source": "/sovereign/team/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/team/" },
     { "source": "/sovereign/perspectives", "destination": "https://sovereign-delta-six.vercel.app/sovereign/perspectives/" },
-    { "source": "/sovereign/perspectives/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/perspectives/" }
+    { "source": "/sovereign/perspectives/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/perspectives/" },
+    { "source": "/bank", "destination": "https://hardagent-bank.vercel.app/" },
+    { "source": "/bank/", "destination": "https://hardagent-bank.vercel.app/" },
+    { "source": "/bank/:path*", "destination": "https://hardagent-bank.vercel.app/:path*" }
   ]
 }
