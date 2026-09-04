@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>G64 Group — Mysore</title>
+  <meta name="description" content="G64 Group is a privately held holding group founded in 2012 and headquartered in Mysore, India. Member companies include Softfino Bangk, Aumnium, Hardagent and StoxSwap." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #062016;
+      --bg-deep: #03140e;
+      --panel: #0b2a1d;
+      --panel-2: #0e3324;
+      --gold: #c9a24a;
+      --gold-soft: #e4c878;
+      --gold-dim: #8a7030;
+      --cream: #efe6c9;
+      --ink: #d8d0b4;
+      --muted: #a89a74;
+      --line: rgba(201, 162, 74, 0.28);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { background: var(--bg-deep); color: var(--ink); }
+    body {
+      font-family: "Source Serif 4", Georgia, serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(1200px 500px at 50% -10%, rgba(201,162,74,0.08), transparent 55%),
+        linear-gradient(180deg, #08301f 0%, #062016 28%, #04150f 100%);
+    }
+
+    a { color: var(--gold-soft); text-decoration: none; }
+    a:hover { color: #f3e3a8; }
+
+    .wrap {
+      width: min(820px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 36px 0 80px;
+    }
+
+    header.top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 8px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      letter-spacing: 0.22em;
+      font-size: 13px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+    }
+    .brand span {
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      font-weight: 400;
+      margin-left: 10px;
+    }
+    .toplink {
+      font-size: 14px;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    .eyebrow {
+      margin-top: 42px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: var(--gold);
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: clamp(44px, 8vw, 72px);
+      line-height: 0.95;
+      color: #f3ead2;
+      margin: 14px 0 6px;
+    }
+    h1 em, .italic {
+      font-style: italic;
+      color: var(--gold-soft);
+      font-weight: 500;
+    }
+
+    .lede {
+      max-width: 38em;
+      margin-top: 18px;
+      font-size: 17.5px;
+      line-height: 1.55;
+      color: var(--cream);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin: 22px 0 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .meta b { color: var(--gold); font-weight: 500; }
+
+    section {
+      margin-top: 46px;
+    }
+    h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      font-weight: 500;
+      color: var(--gold-soft);
+      margin-bottom: 14px;
+    }
+    p {
+      font-size: 16.5px;
+      line-height: 1.65;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      margin: 36px 0 0;
+    }
+
+    .members {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      padding: 18px 18px 16px;
+      min-height: 168px;
+    }
+    .card .kicker {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: var(--gold-dim);
+      margin-bottom: 8px;
+    }
+    .card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 14.5px;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .card a.btn {
+      display: inline-block;
+      border: 1px solid var(--gold-dim);
+      padding: 5px 10px;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .control {
+      border: 1px solid var(--line);
+      background: rgba(11, 42, 29, 0.55);
+      padding: 22px 22px 8px;
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 32px, 820px); }
+      .members { grid-template-columns: 1fr; }
+      header.top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand">G64 Group <span>Privately held</span></div>
+      <a class="toplink" href="https://aumnium.tech">aumnium.tech</a>
+    </header>
+
+    <p class="eyebrow">Mysore · India · Est. 2012</p>
+    <h1>G64 Group<br /><em>a privately held house</em></h1>
+    <p class="lede">
+      A family-controlled holding group for research, silicon, and market infrastructure companies.
+      Headquarters in Mysore. Operating companies listed below.
+    </p>
+    <div class="meta">
+      <span><b>Founded</b> 2012</span>
+      <span><b>Seat</b> Mysore, India</span>
+      <span><b>Form</b> Privately held</span>
+    </div>
+
+    <div class="rule"></div>
+
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        G64 Group was founded in 2012. It is a privately held group controlled by
+        Manuprasad, Vinay Krishnamurthy, their family members, and close associates.
+        The group is headquartered in Mysore, India.
+      </p>
+      <p>
+        The house is a coordinating parent rather than a listed conglomerate. Member
+        companies keep their own brands, sites, and operating mandates. G64 Group
+        provides common control, long-horizon ownership, and a single point of
+        introduction for counterparties who need to understand who stands behind
+        the operating names.
+      </p>
+      <p>
+        Work across the group sits in three adjacent lines: frontier compute and
+        research (Aumnium; Hardagent), digital-market infrastructure (StoxSwap),
+        and specialist financial platforms (Softfino Bangk). The common thread is
+        patient private ownership — not a public float, and not a marketing
+        consortium assembled for a single raise.
+      </p>
+    </section>
+
+    <section>
+      <h2>Member companies</h2>
+      <div class="members">
+        <article class="card">
+          <div class="kicker">Finance platform</div>
+          <h3>Softfino Bangk</h3>
+          <p>Specialist financial platform in the G64 orbit. Public site for product and counterparties.</p>
+          <a class="btn" href="https://www.softfinobangk.com" target="_blank" rel="noopener">softfinobangk.com</a>
+        </article>
+        <article class="card">
+          <div class="kicker">Frontier compute</div>
+          <h3>Aumnium</h3>
+          <p>Research and product company for embodied and neuromorphic compute. Products desk and paper live on aumnium.tech.</p>
+          <a class="btn" href="https://aumnium.tech/products" target="_blank" rel="noopener">aumnium.tech/products</a>
+        </article>
+        <article class="card">
+          <div class="kicker">Sovereign silicon</div>
+          <h3>Hardagent</h3>
+          <p>Application-specific inference silicon — digital, analog, and photonic — packaged as owned appliances.</p>
+          <a class="btn" href="https://hardagent.one" target="_blank" rel="noopener">hardagent.one</a>
+        </article>
+        <article class="card">
+          <div class="kicker">Markets</div>
+          <h3>StoxSwap</h3>
+          <p>Cross-chain swap rails with an institutional finance desk for verified counterparties.</p>
+          <a class="btn" href="https://stoxswap.com/finance" target="_blank" rel="noopener">stoxswap.com/finance</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Control</h2>
+      <div class="control">
+        <p>
+          Control of G64 Group rests with Manuprasad, Vinay Krishnamurthy, family
+          members, and close associates. There is no public listing of the parent
+          and no implied offer of securities on this page.
+        </p>
+        <p>
+          Inquiries intended for the parent — as distinct from an operating
+          company — may be routed through the relevant member site. Technical
+          materials at Hardagent and Aumnium remain gated where those companies
+          already require an NDA.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2012–2026 G64 Group · Mysore, India</div>
+      <div>One-page register · not a prospectus</div>
+    </footer>
+  </div>
+</body>
+</html>
