@@ -20,6 +20,9 @@
     { "source": "/sovereign/perspectives/", "destination": "https://sovereign-delta-six.vercel.app/sovereign/perspectives/" },
     { "source": "/bank", "destination": "https://hardagent-bank.vercel.app/" },
     { "source": "/bank/", "destination": "https://hardagent-bank.vercel.app/" },
-    { "source": "/bank/:path*", "destination": "https://hardagent-bank.vercel.app/:path*" }
+    { "source": "/bank/:path*", "destination": "https://hardagent-bank.vercel.app/:path*" },
+    { "source": "/drones", "destination": "https://drones-zeta.vercel.app/" },
+    { "source": "/drones/", "destination": "https://drones-zeta.vercel.app/" },
+    { "source": "/drones/:path*", "destination": "https://drones-zeta.vercel.app/:path*" }
   ]
 }
